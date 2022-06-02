@@ -1,0 +1,35 @@
+@use "functions" as f;
+$breakpoints-up: (
+  "medium": f.em(700),
+  "large": f.em(900),
+  "xlarge": f.em(1440),
+);
+
+@mixin breakpoints($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+//breakpoints cho max width
+$breakpoints-down: (
+  "small": f.em(699.98),
+  "medium": f.em(899.98),
+  "large": f.em(1739.98),
+  "new": f.em(1024),
+);
+
+@mixin breakpoints-max($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+@mixin keyframes($typewriter) {
+  @keyframes #{$typewriter} {
+    @content;
+  }
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}

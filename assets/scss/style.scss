@@ -1,0 +1,32 @@
+@use "./Base/custom";
+@use "./Base/font";
+@forward "./Components/";
+@forward "./Sections/";
+@import "./Abstracts/";
+//? tìm cách fix lại đoạn trùng variable của bootstrap
+//? k dùng import ghi đè thì làm kiểu gì nhỉ?
+//dùng important mả không được
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(228, 8%, 76%);
+  &-thumb {
+    background-color: hsl(228, 8%, 64%);
+    border-radius: 0.5rem;
+    &:hover {
+      background-color: hsl(228, 8%, 54%);
+    }
+  }
+}

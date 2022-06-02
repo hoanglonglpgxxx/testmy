@@ -1,0 +1,155 @@
+@use "../Base/custom" as *;
+@use "../Abstracts/mixin" as *;
+@use "../Abstracts/functions" as *;
+@use "../Abstracts/breakpoints" as *;
+@use "../Abstracts/variables" as *;
+
+.header-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include gradient;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+  &.dark-theme {
+    @include breakpoints-max(large) {
+      background: $darkThemeBackground;
+    }
+    .nav {
+      &__link {
+        @include breakpoints-max(large) {
+          color: $white;
+        }
+        @include breakpoints-max(small) {
+          color: $white;
+        }
+      }
+      .active-link {
+        @include breakpoints-max(large) {
+          color: $white;
+        }
+        @include breakpoints-max(small) {
+          background: linear-gradient(101deg, rgb(56, 88, 214), rgb(41, 72, 199));
+          color: #fff;
+          box-shadow: 0 4px 8px hsla(228, 66%, 45%, 0.25);
+        }
+      }
+      &__menu {
+        @include breakpoints-max(small) {
+          // background-color: $darkThemeBackground;
+        }
+      }
+    }
+  }
+
+  z-index: 100;
+  transition: 0.4s;
+
+  .nav {
+    height: $header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include breakpoints-max(large) {
+      height: calc($header-height + 0.5rem);
+    }
+    img {
+      display: inline-flex;
+      align-items: center;
+      width: rem(40);
+      height: rem(50);
+      @include breakpoints-max(small) {
+        width: rem(30);
+        // display: none;
+        height: rem(40);
+        margin-left: 1rem;
+      }
+    }
+    &__menu {
+      @include breakpoints-max(large) {
+        margin-left: auto;
+        width: initial;
+      }
+      @include breakpoints-max(medium) {
+        margin-left: auto;
+        width: initial;
+      }
+      @include breakpoints-max(small) {
+        // margin-left: auto;
+        width: initial;
+      }
+    }
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      @include breakpoints-max(large) {
+        column-gap: 3rem;
+        display: flex;
+      }
+      @include breakpoints-max(medium) {
+        column-gap: 0.5rem;
+        display: flex;
+      }
+
+      @include breakpoints-max(small) {
+        column-gap: 0.5rem;
+        display: flex;
+      }
+    }
+    &__link {
+      display: flex;
+      padding: 0.5rem;
+      border-radius: 50%;
+      @include breakpoints-max(large) {
+        // color: $darkThemeTextColor;
+        color: $textColor;
+      }
+      @include breakpoints-max(medium) {
+        color: $textColor;
+      }
+      @include breakpoints-max(small) {
+        color: $primary;
+      }
+
+      i {
+        font-size: 1.4rem;
+      }
+
+      span {
+        @include breakpoints-max(small) {
+          display: none;
+        }
+      }
+    }
+    .active-link {
+      width: auto;
+      height: auto;
+      @include breakpoints-max(large) {
+        background: transparent;
+        color: $textColor;
+        box-shadow: none;
+      }
+      @include breakpoints-max(medium) {
+        background: transparent;
+        color: $textColor;
+
+        box-shadow: none;
+      }
+      @include breakpoints-max(small) {
+        background: linear-gradient(101deg, hsl(228, 66%, 53%), hsl(228, 66%, 47%));
+        color: #fff;
+        box-shadow: 0 4px 8px hsla(228, 66%, 45%, 0.25);
+      }
+    }
+    &__item {
+      list-style: none;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

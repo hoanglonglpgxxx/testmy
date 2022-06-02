@@ -1,0 +1,99 @@
+// @use "functions" as *;
+@use "../Base/custom" as *;
+@use "../Abstracts/breakpoints" as *;
+@use "../Abstracts/variables" as *;
+@use "../Abstracts/mixin" as *;
+
+.display-2 {
+  // text-transform: capitalize;
+  margin-bottom: 1rem;
+  color: $white;
+  text-align: center;
+  z-index: -1;
+
+  &--intro {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 4rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+    font-family: "Caveat Brush", cursive;
+
+    @include breakpoints-max(medium) {
+      font-size: 3rem;
+    }
+    @include breakpoints-max(small) {
+      font-size: 2.4rem;
+    }
+
+    &-name {
+      min-height: 5rem;
+      position: relative;
+      width: max-content;
+      @include breakpoints-max(medium) {
+        min-height: 4rem;
+      }
+      @include breakpoints-max(small) {
+        min-height: 3rem;
+      }
+    }
+  }
+
+  &--descrip-big {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: block;
+    text-transform: none;
+    @include breakpoints-max(medium) {
+      font-size: 2.5rem;
+    }
+    @include breakpoints-max(small) {
+      font-size: 1.4rem;
+    }
+  }
+  &--descrip {
+    // text-align: justify;
+
+    @include breakpoints-max(medium) {
+      font-size: 1.2rem;
+    }
+    @include breakpoints-max(small) {
+      font-size: 1.4rem;
+      text-align: left;
+    }
+    &--header {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    font-size: 1.4rem;
+    font-weight: 200;
+    display: block;
+    text-transform: none;
+  }
+}
+
+.border-right {
+  border-right: 0.1rem solid $text-color;
+}
+
+.heading-line {
+  &::before {
+    content: "";
+    width: 10rem;
+    height: 0.1rem;
+    display: block;
+    margin: 0 auto;
+    background-color: $primary;
+  }
+  &::after {
+    content: "";
+    padding-top: 0.3rem;
+    width: 2rem;
+    height: 0.2rem;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1rem;
+    background-color: $primary;
+  }
+}

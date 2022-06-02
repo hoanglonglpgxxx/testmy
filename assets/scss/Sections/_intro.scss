@@ -1,0 +1,37 @@
+@use "../Base/custom" as *;
+@use "../Abstracts/functions" as *;
+@use "../Abstracts/mixin" as *;
+@use "../Abstracts/breakpoints" as *;
+@use "../Abstracts/variables" as *;
+.intro-section {
+  @include gradient;
+  padding: rem(160) 0 0 0;
+  width: 100%;
+  height: 100%;
+  .heading-line {
+    color: $white;
+    &::before,
+    &::after {
+      background-color: $white;
+    }
+  }
+  &.dark-theme {
+    background: $white;
+    .display-2 {
+      &--intro,
+      &--descrip-big {
+        color: $darkThemeTextColor;
+      }
+    }
+    path {
+      fill: $darkThemeBackground;
+    }
+    .heading-line {
+      color: $darkThemeTextColor;
+      &::before,
+      &::after {
+        background-color: $darkThemeTextColor;
+      }
+    }
+  }
+}

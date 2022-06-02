@@ -1,0 +1,18 @@
+@use "sass:math";
+// @use "../Abstracts" as *;
+//báo lỗi nếu param truyền vào có unit đơn vị
+@function rem($pixel) {
+  //divide $pixel by 16 to return rems
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error 'Don\'t use units when using this func';
+  }
+}
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error 'Don\'t use units when using this func';
+  }
+}
